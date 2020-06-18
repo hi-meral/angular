@@ -1,0 +1,29 @@
+<div *ngIf="courses.length > 0 then listofCources else noCources">
+
+</div>
+<ng-template #listofCources>
+    List of courses
+</ng-template>
+<ng-template #noCources >
+    No cources
+</ng-template>
+<br /><br /><br />
+
+<button class="btn btn-default" (click)="onLoad()">Load Course</button>
+<button class="btn btn-default" (click)="onAdd()">Add Course</button>
+
+<ul *ngFor="let nc of newCourses; even as isEv; TrackBy : trackById1">
+    <li >{{ i }} - {{ nc.name }} </li> <span *ngIf="isEv">[Even]</span> <button (click)="onDelete(nc)" >Delete</button>
+</ul>
+
+<u class="nav nav-pills">
+    <li><a [class.active]="viewMode == 'map'" (click)="viewMode = 'map'" >Map View</a></li>
+    <li><a [class.active]="viewMode == 'list'" (click)="viewMode = 'list'" >List View</a></li>
+</u>
+<div [ngSwitch]="viewMode">
+    <div *ngSwitchCase="'map'" ><h1>THIS IS A MAP VIEW</h1></div>
+    <div *ngSwitchCase="'list'" ><h1>THIS IS A LIST VIEW</h1></div>
+    <!--<div><h1>THIS IS A MAP VIEW</h1></div>-->
+</div>
+
+<button [ngClass]="{ 'btn' : true, 'btn-primary' : canSave }" >ngClass</button>

@@ -1,0 +1,8 @@
+<style>
+    .glyphicon{
+        color: blue;
+    }
+</style>
+<span class="glyphicon" [class.glyphicon-star]="isFavourite" [class.glyphicon-star-empty]="!isFavourite" (click)="onFavClick()"></span>
+<br/><br/>
+<button class="btn btn-primary">Save</button>

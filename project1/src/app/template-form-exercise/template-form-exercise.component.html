@@ -1,0 +1,31 @@
+<div class="panel panel-default">
+  <div class="panel-heading">Template Form Exercise </div>
+  <div class="panel-body">
+    <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+      <div class="form-group">
+        <label for="firstname">Name</label>
+        <input type="text" required class="form-control" name="firstname" ngModel #firstname="ngModel" />
+      </div>
+      <div *ngIf="!firstname.valid && firstname.touched" class="alert alert-danger">Username is required</div>
+      <div class="form-group">
+        <label for="food">Food</label>
+        <select ngModel required #food1="ngModel" name="food1" class="form-control">
+          <option value=""></option>
+          <option *ngFor="let food of foods" name="food1" [value]="food.id">{{ food.name }}</option>
+        </select>
+      </div>
+      <div *ngIf="!food1.valid && food1.touched" class="alert alert-danger"  >Food is required</div>
+      <div class="form-group">
+        <label for="drandelivery">
+          <input type="checkbox" ngModel name="drandelivery" /> Drawn Delivery
+        </label>
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </form>
+  </div>
+</div>
+<p>
+  {{ f.value | json }}
+</p>

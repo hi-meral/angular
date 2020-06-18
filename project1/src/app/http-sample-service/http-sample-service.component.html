@@ -1,0 +1,9 @@
+<h2>Posts (from jsonplaceholder)</h2>
+<input type="text" name="" class="form-control" (keyup.enter)="createPost(title)" #title >
+<ul class="list-group">
+  <li class="list-group-item" *ngFor="let post of posts">
+    <button type="button" class="btn btn-default btn-sml" name="button" (click)="updatePost(post)" >Update</button>
+    <button type="button" class="btn btn-default btn-sml" name="button" (click)="deletePost(post)" >Delete</button>
+     {{ post.title }}
+   </li>
+</ul>

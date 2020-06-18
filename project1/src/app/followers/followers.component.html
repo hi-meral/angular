@@ -1,0 +1,9 @@
+<ul class="list-unstyled">
+  <li class="media" *ngFor="let follower of followers">
+    <img class="avatar mr-3" src="{{ follower.avatar_url}}" alt="Generic placeholder image">
+    <div class="media-body">
+      <h5 class="mt-0 mb-1">{{ follower.login }}</h5>
+      {{ follower.html_url }}
+    </div>
+  </li>
+</ul>

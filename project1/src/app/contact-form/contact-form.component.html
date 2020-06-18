@@ -1,0 +1,51 @@
+
+
+<div class="panel panel-default">
+    <div class="panel-heading"><h4>Contact Form</h4></div>
+    
+      <div class="panel-body">
+        <form action="#" method="post" #f="ngForm" (ngSubmit)="onSubmit(f)">
+          <div *ngIf="!contact.valid">Error</div>
+          <div ngModelGroup="contact" #contact="ngModelGroup">
+            <div class="form-group">
+              <label for="firstName">First Name</label>
+              <input type="text" class="form-control" required minlenght="3" maxlength="10" id="firstName" name="firstName" ngModel #firstName="ngModel" (change)="fun1(firstName)">
+              <div class="alert alert-danger" *ngIf="firstName.touched && !firstName.valid">
+                <div *ngIf="firstName.errors.required">First Name is empty</div>
+                <div *ngIf="firstName.errors.minlength">First Name is empty</div>
+                <div *ngIf="firstName.errors.maxlength">First Name is empty</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="comme@NgModulent">Comment </label>
+              <textarea id="comment" name="comment" ngModel class="form-control"></textarea>
+            </div>
+            <div class="checkbox form-group">
+              <label>
+                <input type="checkbox" ngModel name="isChecked" /> Subscribe to mailing list
+              </label>
+            </div>
+            <div class="form-group">
+              <label for="contactMethod" >Subject of Interest</label>
+              <select multiple name="subjectOfInterest" ngModel id="subjectOfInterest" class="form-control" >
+                <option *ngFor="let subject of subjectOfInterest" [value]="subject.id"> {{ subject.name }} </option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Contact Method</label>
+            </div>
+            <div *ngFor="let method of contactMethods" class="form-group">
+              <label> 
+                <input type="radio" name="contactMethod" id="contactMethod" ngModel [value]="method.id" />
+                {{ method.name }}
+              </label>
+            </div>
+          </div>
+            <button type="submit" class="btn btn-primary" [disabled]="!f.valid" >Submit</button>
+        </form>
+        <p>
+          {{ f.value | json }}
+        </p>
+      </div>
+      
+</div>

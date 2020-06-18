@@ -1,0 +1,19 @@
+<div style="height:50px; width:50px;" [class.red1]="isAct" [class.blue1]="!isAct"  (click)="onClick1()" >&nbsp;</div>
+<br />
+<p>
+  {{ course.title | uppercase }} 
+  
+</p>
+<p>
+  {{ course.no1 | number:'2.2-2' }}
+
+</p>
+<p>
+  {{ course.newdate | date:'longDate'  }}
+</p>
+<p>
+  {{ course.summarytext | summary:50 }}
+</p>
+<p>
+  <input type="text" (keyup.enter)="OnKeyUp()"  [(ngModel)]="email" />
+</p>

@@ -1,0 +1,22 @@
+.zippy{
+    border: 1px solid #0f0f0f;
+    border-radius: 5px;
+    cursor:pointer;
+}
+
+.zippy-heading{
+    font-weight: bold;
+    padding: 20px;
+}
+
+.zippy-body{
+    padding: 20px;
+}
+
+.expanded{
+    background-color: #cccccc;
+}
+
+.glyphicon{
+    float: right;
+}
